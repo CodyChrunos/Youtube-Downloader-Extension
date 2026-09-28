@@ -1,0 +1,384 @@
+/*
+ * Popup styles. Every rule is scoped to body.tubly-popup because this same
+ * file is injected on youtube.com by the manifest; scoping keeps it from
+ * touching YouTube's own elements.
+ */
+body.tubly-popup {
+  margin: 0;
+  padding: 0;
+  width: 340px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #0f0f12;
+  color: #f1f1f4;
+  font-size: 14px;
+}
+
+body.tubly-popup .container {
+  padding: 16px;
+}
+
+body.tubly-popup .header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+body.tubly-popup .header .logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+body.tubly-popup .header h1 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 600;
+}
+
+body.tubly-popup .hidden {
+  display: none !important;
+}
+
+body.tubly-popup .message {
+  text-align: center;
+  padding: 18px 8px;
+  color: #c7c7cf;
+}
+
+body.tubly-popup .message p {
+  margin: 0 0 14px;
+}
+
+body.tubly-popup .btn {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+body.tubly-popup .btn.primary {
+  background: #ff0033;
+  color: #fff;
+}
+
+body.tubly-popup .btn.secondary {
+  background: transparent;
+  color: #c7c7cf;
+  border: 1px solid #2e2e36;
+}
+
+body.tubly-popup .thumbnail-container {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+body.tubly-popup .thumbnail-container img {
+  width: 100%;
+  display: block;
+}
+
+body.tubly-popup .duration {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+body.tubly-popup .title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+body.tubly-popup .channel {
+  color: #9a9aa4;
+  font-size: 12px;
+  margin: 0 0 14px;
+}
+
+body.tubly-popup .download-section h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8b8b95;
+  margin: 14px 0 8px;
+  font-weight: 700;
+}
+
+body.tubly-popup .quality-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+body.tubly-popup .quality-btn {
+  background: #1b1b21;
+  color: #f1f1f4;
+  border: 1px solid #2c2c34;
+  border-radius: 8px;
+  padding: 9px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+body.tubly-popup .quality-btn:hover {
+  border-color: #ff0033;
+  background: #23151a;
+}
+
+body.tubly-popup .progress-container {
+  margin-top: 14px;
+}
+
+body.tubly-popup .progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #26262e;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+body.tubly-popup .progress {
+  height: 100%;
+  width: 0;
+  background: #ff0033;
+  border-radius: 3px;
+  transition: width 0.25s ease;
+}
+
+body.tubly-popup #progress-text {
+  font-size: 12px;
+  color: #9a9aa4;
+  margin: 8px 0 0;
+}
+
+body.tubly-popup .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+body.tubly-popup .version {
+  font-size: 11px;
+  color: #6a6a74;
+}
+
+/* ============================================================
+   In-page Download button + quality panel (watch & Shorts)
+   ============================================================ */
+.tubly-host {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto; /* never shrink or grow inside YouTube's flex button rows */
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+}
+
+.tubly-dl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 18px;
+  background: #272727;
+  color: #f1f1f1;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  vertical-align: middle;
+  transition: background 0.15s;
+}
+
+.tubly-dl-btn:hover {
+  background: #3f3f3f;
+}
+
+.tubly-dl-btn:active {
+  background: #4d4d4d;
+}
+
+.tubly-dl-btn svg {
+  flex: 0 0 auto;
+}
+
+.tubly-host--shorts {
+  margin: 10px 0 0;
+}
+
+.tubly-host--shorts .tubly-dl-btn {
+  flex-direction: column;
+  gap: 3px;
+  height: auto;
+  width: 56px;
+  padding: 8px 4px;
+  border-radius: 0;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 400;
+  color: #f1f1f1;
+}
+
+.tubly-host--shorts .tubly-dl-btn:hover {
+  background: transparent;
+}
+
+.tubly-host--shorts .tubly-dl-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.tubly-panel {
+  /* Fixed and attached to document.body by content.js: YouTube's button
+     row clips absolutely-positioned children, so the panel lives outside
+     it and is anchored to the button's screen coordinates. */
+  position: fixed;
+  z-index: 99999;
+  width: 300px;
+  max-height: min(420px, calc(100vh - 24px));
+  overflow-y: auto;
+  background: #212121;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.tubly-panel.hidden,
+.tubly-status-area.hidden,
+.tubly-status.hidden,
+.tubly-progress.hidden {
+  display: none !important;
+}
+
+.tubly-h {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #aaa;
+  font-weight: 700;
+  margin: 10px 0 8px;
+}
+
+.tubly-h:first-child {
+  margin-top: 0;
+}
+
+.tubly-qgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.tubly-qbtn {
+  background: #303030;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.tubly-qbtn:hover {
+  background: #ff0033;
+}
+
+.tubly-loading,
+.tubly-empty {
+  color: #aaa;
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+/* Prominent download progress area, pinned to the TOP of the panel. */
+.tubly-status-area {
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.tubly-progress {
+  height: 18px;
+  border-radius: 9px;
+  background: #2c2c2c;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.tubly-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff0033, #ff7043);
+  border-radius: 9px;
+  transition: width 0.25s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 51, 0.55);
+}
+
+.tubly-status {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+.tubly-status.ok {
+  color: #4caf50;
+}
+
+.tubly-status.err {
+  color: #ff5252;
+}
+
+.tubly-savebtn {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #ff0033;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.tubly-savebtn:hover {
+  background: #e0002c;
+}
+
+.tubly-savebtn:active {
+  transform: scale(0.98);
+}
+
+.tubly-savebtn:disabled {
+  background: #555;
+  cursor: default;
+}

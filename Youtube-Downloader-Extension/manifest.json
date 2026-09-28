@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Chrunos Downloader",
+  "version": "1.0.0",
+  "description": "Download YouTube videos in 4K, convert to MP3, and save YouTube Shorts",
+  "homepage_url": "https://tubly.download",
+  "icons": {
+    "128": "logo/icon128.png"
+  },
+  "permissions": [
+    "downloads",
+    "scripting",
+    "declarativeNetRequestWithHostAccess",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://youtu.be/*",
+    "https://*.googlevideo.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtu.be/*"],
+      "js": ["src/content.js"],
+      "css": ["src/styles.css"]
+    },
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtu.be/*"],
+      "js": ["src/main-proxy.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "128": "logo/icon128.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["bridge.html"],
+      "matches": ["https://www.youtube.com/*", "https://youtu.be/*"]
+    }
+  ]
+}
